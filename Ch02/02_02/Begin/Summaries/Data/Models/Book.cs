@@ -9,7 +9,7 @@ namespace Summaries.Data
         public string Description { get; set; }
         public double? Rate { get; set; }
         public DateTime? DateStart { get; set; }
-        public DateTime? DateEnd { get; set; }
+        public DateTime? DateRead { get; set; }
 
     }
 }
