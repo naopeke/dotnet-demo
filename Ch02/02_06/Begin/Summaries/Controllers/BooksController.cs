@@ -35,5 +35,19 @@ namespace Summaries.Controllers
             _service.UpdateBook(id, book);
             return Ok(book);
         }
+
+        //Delete a book
+        [HttpDelete("DeleteBook/{id}")]
+        public IActionResult DeleteBook(int id){
+            _service.DeleteBook(id);
+            return Ok();
+        }
+
+        //Get a single book by id
+        [HttpGet("SingleBook/{id}")]
+        public IActionResult GetBookById(int id){
+            var book = _service.GetBookById(id);
+            return Ok(book);
+        }
     }
 }
