@@ -18,6 +18,7 @@ import { BookReducer } from './store/book.reducer';
 import { Effect, EffectsModule } from '@ngrx/effects';
 import { BookEffects } from './store/book.effects';
 import { AuthService } from './services/auth.service';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -37,11 +38,11 @@ import { AuthService } from './services/auth.service';
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'books', component: BooksComponent},
-      { path: 'new-book', component: NewBookComponent},
-      { path: 'update-book/:id', component: UpdateBookComponent},
-      { path: 'delete-book/:id', component: DeleteBookComponent},
-      { path: 'show-book/:id', component: ShowBookComponent}
+      { path: 'books', component: BooksComponent, canActivate:[AuthGuard]},
+      { path: 'new-book', component: NewBookComponent, canActivate:[AuthGuard]},
+      { path: 'update-book/:id', component: UpdateBookComponent, canActivate:[AuthGuard]},
+      { path: 'delete-book/:id', component: DeleteBookComponent, canActivate:[AuthGuard]},
+      { path: 'show-book/:id', component: ShowBookComponent, canActivate:[AuthGuard]}
     ]),
     StoreModule.forRoot({applicationState: BookReducer}),
     EffectsModule.forRoot([BookEffects])
