@@ -17,6 +17,7 @@ import { StoreModule } from '@ngrx/store';
 import { BookReducer } from './store/book.reducer';
 import { Effect, EffectsModule } from '@ngrx/effects';
 import { BookEffects } from './store/book.effects';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { BookEffects } from './store/book.effects';
     StoreModule.forRoot({applicationState: BookReducer}),
     EffectsModule.forRoot([BookEffects])
   ],
-  providers: [BookService],
+  providers: [BookService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

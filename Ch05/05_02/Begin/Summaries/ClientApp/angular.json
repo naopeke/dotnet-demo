@@ -132,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "Summaries"
+  "defaultProject": "Summaries",
+  "cli": {
+    "analytics": false
+  }
 }
